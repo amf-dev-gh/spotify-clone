@@ -1,5 +1,41 @@
 <ng-container [ngSwitch]="name">
 
+  <!-- three-dots -->
+  <ng-container *ngSwitchCase="'three-dots'">
+    <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" width="16"
+      height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
+    </svg>
+  </ng-container>
+
+  <!-- close -->
+  <ng-container *ngSwitchCase="'close'">
+    <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      viewBox="0 0 16 16">
+      <path
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+    </svg>
+  </ng-container>
+
+  <!-- arrow-left -->
+  <ng-container *ngSwitchCase="'arrow-left'">
+    <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+    </svg>
+  </ng-container>
+
+  <!-- arrow-right -->
+  <ng-container *ngSwitchCase="'arrow-right'">
+    <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+    </svg>
+  </ng-container>
+
   <!-- home -->
   <ng-container *ngSwitchCase="'home'">
     <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" role="img" height="24" width="24" aria-hidden="true"
@@ -18,7 +54,6 @@
         d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z">
       </path>
     </svg>
-
   </ng-container>
 
   <!-- time -->
