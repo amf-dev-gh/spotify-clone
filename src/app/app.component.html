@@ -1,23 +1,15 @@
 <div id="app" class="relative h-screen p-2 gap-2">
 
-  <nav class="[grid-area:nav] h-15 flex justify-between items-center p-2">
-    <div>botones</div>
-    <div>buscador</div>
-    <div>cuenta, botones</div>
-  </nav>
-  
-  <aside class="[grid-area:aside] bg-[var(--color-bg-gray)] rounded-md">
-  
-  </aside>
-  
+  <app-nav class="[grid-area:nav]" />
+
+  <app-aside class="[grid-area:aside] bg-[var(--color-bg-gray)] rounded-md" />
+
   <main class="[grid-area:main] bg-[var(--color-bg-gray)] rounded-md">
+
     <router-outlet />
+
   </main>
-  
-  <footer class="[grid-area:player] h-15 flex justify-between items-center p-2">
-    <div>cancion</div>
-    <div>reproductor</div>
-    <div>volumen + botones</div>
-  </footer>
+
+  <app-footer class="[grid-area:player]" />
 
 </div>
