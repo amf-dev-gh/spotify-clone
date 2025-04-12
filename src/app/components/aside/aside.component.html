@@ -1,3 +1,41 @@
-<aside class="">
-  
+<aside class="flex flex-col">
+
+  <!-- biblioteca -->
+  <div class="flex justify-between p-2">
+    <a href="#" class="flex me-auto gap-2 items-center text-[var(--color-text-gray)] hover:text-white">
+      <icon-svg [name]="'library'" class="h-auto w-auto" />
+      <p>Tu biblioteca</p>
+    </a>
+    <button
+      class="group flex gap-1 items-center text-sm py-2 px-3 rounded-3xl bg-[var(--color-btn-gray)] hover:bg-[var(--color-btn-gray-hover)] active:bg-[var(--color-btn-gray-active)] hover:cursor-pointer">
+      <icon-svg [name]="'plus'" class="h-auto w-auto text-[var(--color-text-gray)] group-hover:text-white" />
+      Crear
+    </button>
+  </div>
+
+  <!-- bonotes listas albunes artistas -->
+  <div class="flex gap-2 p-2">
+    <button
+      class="group flex gap-1 items-center text-sm py-1.5 px-3 rounded-3xl bg-white text-black hover:bg-gray-200 active:bg-gray-300 hover:cursor-pointer">
+      Listas
+    </button>
+    <button
+      class="group flex gap-1 items-center text-sm py-1.5 px-3 rounded-3xl bg-[var(--color-btn-gray)] hover:bg-[var(--color-btn-gray-hover)] active:bg-[var(--color-btn-gray-active)] hover:cursor-pointer">
+      Álbunes
+    </button>
+    <button
+      class="group flex gap-1 items-center text-sm py-1.5 px-3 rounded-3xl bg-[var(--color-btn-gray)] hover:bg-[var(--color-btn-gray-hover)] active:bg-[var(--color-btn-gray-active)] hover:cursor-pointer">
+      Artistas
+    </button>
+  </div>
+
+  <!-- listas disponibles -->
+  <div class="flex flex-col gap-2 p-2">
+    <ul>
+      <li *ngFor="let playList of playLists">
+        <app-playlist-card [playList]="playList" />
+      </li>
+    </ul>
+  </div>
+
 </aside>
