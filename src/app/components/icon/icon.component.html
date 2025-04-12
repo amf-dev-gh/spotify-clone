@@ -211,6 +211,24 @@
     </svg>
   </ng-container>
 
+  <!-- plus -->
+  <ng-container *ngSwitchCase="'plus'">
+    <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      viewBox="1 1 16 16">
+      <path fill-rule="evenodd"
+        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+    </svg>
+  </ng-container>
+
+  <!-- play-fill -->
+  <ng-container *ngSwitchCase="'play-fill'">
+    <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      viewBox="0 0 16 16">
+      <path
+        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+    </svg>
+  </ng-container>
+
   <!-- Default -->
   <ng-container *ngSwitchDefault>
     <span class="text-red-500">icon {{name}}</span>
