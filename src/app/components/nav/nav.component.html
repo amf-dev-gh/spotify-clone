@@ -1,23 +1,52 @@
-<nav class="h-10 flex justify-between items-center p-2">
+<nav class="h-12 flex justify-between items-center">
+
+  <!-- botones izquierda -->
   <div class="flex gap-4">
-    <a href="#" class="h-6 text-[var(--color-btn-gray)] hover:text-[var(--color-btn-gray-active)]">
+    <a href="#" class="h-6 text-white">
       <icon-svg [name]="'three-dots'" class="h-full w-auto" />
     </a>
-    <a href="#" class="h-6 text-[var(--color-btn-gray)] hover:text-[var(--color-btn-gray-active)]">
+    <a href="#" class="h-6 text-[var(--color-text-gray)] hover:text-white" title="Volver">
       <icon-svg [name]="'arrow-left'" class="h-full w-auto" />
     </a>
-    <a href="#" class="h-6 text-[var(--color-btn-gray)] hover:text-[var(--color-btn-gray-active)]">
+    <a href="#" class="h-6 text-[var(--color-text-gray)] hover:text-white" title="Avanzar">
       <icon-svg [name]="'arrow-right'" class="h-full w-auto" />
     </a>
   </div>
-  <div class="relative">
-    <input [(ngModel)]="inputSearch" type="text" class="bg-[var(--color-btn-gray-hover)] w-[400px] h-10 rounded-l-3xl rounded-r-3xl px-10 font-light" placeholder="¿Qué quieres escuchar?">
-    <span class="absolute left-2 top-2">
-      <icon-svg [name]="'search'" class="h-full w-auto" />
-    </span>
-    <button class="absolute right-3 top-2.5 h-5 text-[var(--color-btn-active)] hover:text-white hover:cursor-pointer" *ngIf="inputSearch !== ''" (click)="clearInput()">
-      <icon-svg [name]="'close'" class="h-full w-auto" />
-    </button>
+
+  <!-- barra de busqueda central -->
+  <div class="flex gap-2 items-center">
+    <a href="#"
+    title="Inicio"
+      class="p-2.5 bg-[var(--color-btn-gray-hover)] hover:bg-[var(--color-btn-gray-active)] text-[var(--color-text-gray)] hover:text-white rounded-3xl">
+      <icon-svg [name]="'home'" class="h-full w-auto" />
+    </a>
+    <div class="relative text-[var(--color-text-gray)] hover:text-white">
+      <input 
+      [(ngModel)]="inputSearch" 
+      type="text" 
+      class="bg-[var(--color-btn-gray-hover)] hover:bg-[var(--color-btn-gray-active)] w-[400px] h-11 rounded-l-3xl rounded-r-3xl px-10 font-light
+        border border-transparent hover:border-gray-400/50 focus:text-white" 
+        placeholder="¿Qué quieres reproducir?">
+      <span class="absolute left-2.5 top-2.5">
+        <icon-svg [name]="'search'" class="h-full w-auto" />
+      </span>
+      <button class="absolute right-3.5 top-3 h-5 text-[var(--color-btn-active)] hover:text-white hover:cursor-pointer"
+        *ngIf="inputSearch !== ''" (click)="clearInput()">
+        <icon-svg [name]="'close'" class="h-full w-auto" />
+      </button>
+    </div>
   </div>
-  <div>cuenta, botones</div>
+
+  <!-- botones derecha y cuenta -->
+  <div class="flex gap-5 items-center">
+    <a href="#" class="h-4.5 text-[var(--color-text-gray)] hover:text-white" title="Novedades">
+      <icon-svg [name]="'bell'" class="h-full w-auto" />
+    </a>
+    <a href="#" class="h-4.5 text-[var(--color-text-gray)] hover:text-white" title="Actividad de tus amigos">
+      <icon-svg [name]="'people'" class="h-full w-auto" />
+    </a>
+    <a href="#" class="p-1.5 bg-[var(--color-btn-gray-hover)] hover:bg-[var(--color-btn-gray-active)] rounded-3xl" title="Andres Fernández">
+      <img src="/images/account-img.webp" alt="imagen cuenta" class="aspect-[500/500] h-9.5 w-auto rounded-3xl">
+    </a>
+  </div>
 </nav>
