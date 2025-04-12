@@ -1,0 +1,54 @@
+<section id="home" class="flex flex-col gap-2 h-full overflow-auto">
+  <!-- botones de filtro -->
+  <div class="flex gap-3 py-2 pl-8">
+    <button
+      class="group flex gap-1 items-center text-sm py-1.5 px-3 rounded-3xl bg-white text-black hover:bg-gray-200 active:bg-gray-300 hover:cursor-pointer">
+      Todo
+    </button>
+    <button
+      class="group flex gap-1 items-center text-sm py-1.5 px-3 rounded-3xl bg-[var(--color-btn-gray)] hover:bg-[var(--color-btn-gray-hover)] active:bg-[var(--color-btn-gray-active)] hover:cursor-pointer">
+      Musica
+    </button>
+    <button
+      class="group flex gap-1 items-center text-sm py-1.5 px-3 rounded-3xl bg-[var(--color-btn-gray)] hover:bg-[var(--color-btn-gray-hover)] active:bg-[var(--color-btn-gray-active)] hover:cursor-pointer">
+      Listas
+    </button>
+  </div>
+
+  <!-- listados -->
+  <div class="flex flex-col gap-3 py-2 pl-8">
+
+    <!-- escuchado recientemente -->
+    <div>
+      <h1 class="text-2xl font-bold">Escuchado recientemente</h1>
+      <div class="flex">
+        <div *ngFor="let playList of playLists"
+          class="relative flex flex-col gap-1 p-2 hover:bg-[var(--color-btn-gray)] rounded w-40 group hover:cursor-pointer">
+          <img [src]="playList.cover" alt="imagen album" class="w-full h-auto object-cover rounded transition-all">
+          <p class="hover:underline">{{playList.title}}</p>
+          <p class="text-sm text-[var(--color-text-gray)]">{{playList.artists}}</p>
+          <icon-svg [name]="'play-fill-black'"
+            class="shadow-2xl text-[var(--color-base-green)] absolute inset-0 w-10 top-13 left-13 h-auto opacity-0 group-hover:opacity-100 transition-all" />
+          <span class="absolute inset-0 w-36 left-2 top-36 h-2 rounded-b" [ngClass]="'bg-['+ playList.color.dark + ']'"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- otros -->
+    <div>
+      <h1 class="text-2xl font-bold">Tus mixs personalizados</h1>
+      <div class="flex">
+        <div *ngFor="let playList of playLists"
+          class="relative flex flex-col gap-1 p-2 hover:bg-[var(--color-btn-gray)] rounded w-40 group hover:cursor-pointer">
+          <img [src]="playList.cover" alt="imagen album" class="w-full h-auto object-cover rounded transition-all">
+          <p class="hover:underline">{{playList.title}}</p>
+          <p class="text-sm text-[var(--color-text-gray)]">{{playList.artists}}</p>
+          <icon-svg [name]="'play-fill-black'"
+            class="shadow-2xl text-[var(--color-base-green)] absolute inset-0 w-10 top-13 left-13 h-auto opacity-0 group-hover:opacity-100 transition-all" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
