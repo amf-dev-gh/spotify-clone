@@ -1,0 +1,83 @@
+#timeRange {
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, white 0%, white var(--progress, 0%), var(--color-btn-gray) var(--progress, 0%), var(--color-btn-gray) 100%);
+  cursor: pointer;
+  width: 450px;
+  height: 4.5px;
+  border-radius: 5px;
+}
+
+#timeRange:hover {
+  background: linear-gradient(to right, var(--color-base-green) 0%,  var(--color-base-green) var(--progress, 0%), var(--color-btn-gray) var(--progress, 0%), var(--color-btn-gray) 100%);
+}
+
+#timeRange:hover::-webkit-slider-thumb {
+  background-color: white;
+}
+
+#timeRange:focus {
+  outline: none;
+}
+
+/* slider track */
+#timeRange::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 4px;
+  border-radius: 5px;
+}
+
+/* slider thumb */
+#timeRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -2.5px;
+  background-color: transparent;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  border: none;
+}
+
+/* ---------------- Input Volumen --------------- */
+
+#volumeRange {
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, white 0%, white var(--volume, 0%), var(--color-btn-gray) var(--volume, 0%), var(--color-btn-gray) 100%);
+  cursor: pointer;
+  width: 100px;
+  height: 4px;
+  border-radius: 5px;
+}
+
+#volumeRange:hover {
+  background: linear-gradient(to right, var(--color-base-green) 0%,  var(--color-base-green) var(--volume, 0%), var(--color-btn-gray) var(--volume, 0%), var(--color-btn-gray) 100%);
+}
+
+#volumeRange:hover::-webkit-slider-thumb {
+  background-color: white;
+}
+
+#volumeRange:focus {
+  outline: none;
+}
+
+/* slider track */
+#volumeRange::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 4px;
+  border-radius: 5px;
+}
+
+/* slider thumb */
+#volumeRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -2.5px;
+  background-color: transparent;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  border: none;
+}

@@ -1,5 +1,82 @@
-<footer class="h-15 flex justify-between items-center p-2">
-  <div>cancion</div>
-  <div>reproductor</div>
-  <div>volumen + botones</div>
+<footer class="h-17 px-1 flex justify-between items-center">
+
+  <!-- cancion actual (imagen, nombre, banda) -->
+  <div class="flex gap-4 items-center">
+    <img [src]="song.image" alt="imagen disco" class="w-12 h-12 object-cover">
+    <div class="flex flex-col justify-center">
+      <a href="#" class="text-sm hover:underline">{{song.title}}</a>
+      <a href="#"
+        class="text-[13px] text-[var(--color-text-gray)] hover:text-white hover:underline me-auto">{{song.album}}</a>
+    </div>
+    <a href="#" class="h-4.5 text-[var(--color-text-gray)] hover:text-white" title="Añadir a Canciones que te gustan">
+      <icon-svg [name]="'plus-circle'" class="h-full w-auto" />
+    </a>
+    <a href="#" class="h-4.5 text-[var(--color-text-gray)] hover:text-white" title="Ocultar">
+      <icon-svg [name]="'dash-circle'" class="h-full w-auto" />
+    </a>
+  </div>
+
+  <!-- botones de reproducción -->
+  <div class="flex flex-col items-center gap-2">
+
+    <!-- botones play, pause, next, prev -->
+    <div class="flex gap-5 items-center">
+      <button class="h-4.5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Anterior">
+        <icon-svg [name]="'prev'" class="h-full w-auto" />
+      </button>
+      <button *ngIf="!playing" (click)="playPause()" class="h-8 text-white hover:cursor-pointer" title="Reproducir">
+        <icon-svg [name]="'play'" class="h-full w-auto" />
+      </button>
+      <button *ngIf="playing" (click)="playPause()" class="h-8 text-white hover:cursor-pointer" title="Pausar">
+        <icon-svg [name]="'pause'" class="h-full w-auto" />
+      </button>
+      <button class="h-4.5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Siguiente">
+        <icon-svg [name]="'next'" class="h-full w-auto" />
+      </button>
+    </div>
+
+    <!-- tiempo -->
+    <div class="flex gap-2 items-center">
+
+      <!-- tiempo transcurrido -->
+      <p class="font-light text-[10px]">{{formatTime(currentTime)}}</p>
+
+      <!-- barra de tiempo -->
+      <input type="range" id="timeRange" min="0" [max]="durationSongTime" [value]="durationSongTime"
+        [(ngModel)]="currentTime" (input)="changeCurrentTime()" />
+
+      <audio #audioPlayer (loadedmetadata)="updateDurationSong()" (timeupdate)="onTimeUpdate()">
+        <source [src]="'/music/'+song.albumId+'/0'+song.id+'.mp3'" type="audio/mpeg">
+      </audio>
+
+      <!-- tiempo restante -->
+      <p class="font-light text-[10px]">{{formatTime(durationSongTime-currentTime)}}</p>
+
+    </div>
+
+  </div>
+
+  <!-- botones volumen, letra, pantalla completa -->
+  <div class="flex items-center gap-3">
+
+    <a class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
+      title="Conectar a un dispositivo">
+      <icon-svg [name]="'headphones'" class="h-full w-auto" />
+    </a>
+
+    <button class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Volumen" (click)="volumeMaxMin()">
+      <icon-svg *ngIf="volume === 0" [name]="'volume-silenced'" class="h-full w-auto" />
+      <icon-svg *ngIf="volume > 0 && volume <= 25" [name]="'volume-low'" class="h-full w-auto" />
+      <icon-svg *ngIf="volume > 25 && volume <= 80" [name]="'volume-medium'" class="h-full w-auto" />
+      <icon-svg *ngIf="volume > 80" [name]="'volume-full'" class="h-full w-auto" />
+    </button>
+
+    <!-- barra de volumen -->
+    <input type="range" id="volumeRange" max="100" min="0" [(ngModel)]="volume" (input)="changeVolume()" />
+
+    <a class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" (click)="toggleFullscreen()"
+      title="Ver en pantalla completa">
+      <icon-svg [name]="'full-screen'" class="h-full w-auto" />
+    </a>
+  </div>
 </footer>
