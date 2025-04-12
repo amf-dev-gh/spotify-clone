@@ -229,6 +229,15 @@
     </svg>
   </ng-container>
 
+    <!-- play-fill-black -->
+    <ng-container *ngSwitchCase="'play-fill-black'">
+      <svg class="{{ class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+        <circle cx="12" cy="12" r="12" fill="currentColor"/>
+        <polygon points="9,7 9,17 17,12" fill="black"/>
+      </svg>
+      
+    </ng-container>
+
   <!-- Default -->
   <ng-container *ngSwitchDefault>
     <span class="text-red-500">icon {{name}}</span>
