@@ -4,6 +4,6 @@
   "nav nav nav"
   "aside main main"
   "player player player";
-  grid-template-columns: 300px 1fr 1fr;
+  grid-template-columns: 350px 1fr 1fr;
   grid-template-rows: auto 1fr auto;
 }
