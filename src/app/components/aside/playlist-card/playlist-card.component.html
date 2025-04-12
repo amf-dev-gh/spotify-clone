@@ -1,0 +1,8 @@
+<a href="#" class="relative flex gap-3 items-center p-2 rounded hover:bg-[var(--color-btn-gray)] group">
+  <img [src]="playList?.cover" alt="imagen album" class="w-13 h-auto rounded group-hover:opacity-50">
+  <div class="flex flex-col justify-center">
+    <p>{{playList?.title}}</p>
+    <p class="text-sm text-[var(--color-text-gray)]">Artistas · {{playList?.artists}}</p>
+  </div>
+  <icon-svg [name]="'play-fill'" class="h-9 w-auto absolute inset-0 top-2 left-1.5 opacity-0 group-hover:opacity-100" />
+</a>
