@@ -104,4 +104,12 @@ export class FooterComponent {
     }
   }
 
+  playNext(){
+    this.songService.nextSong();
+  }
+
+  playPrev(){
+    this.songService.prevSong();
+  }
+
 }
