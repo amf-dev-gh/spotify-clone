@@ -1,6 +1,6 @@
 <a href="#"
   class="relative flex flex-col gap-1 p-2 hover:bg-[var(--color-btn-gray)] rounded min-w-[160px] w-[160px] h-auto group hover:cursor-pointer  transition-all">
-  <img [src]="playList?.cover" alt="imagen album" class="w-full h-auto object-cover rounded">
+  <img [src]="playList?.cover" alt="imagen album" class="aspect-[1/1] w-full h-auto object-cover rounded">
   <p class="hover:underline z-1 truncate">{{playList?.title}}</p>
   <p class="text-sm text-[var(--color-text-gray)]">{{playList?.artists}}</p>
   <icon-svg [name]="'play-fill-black'"
