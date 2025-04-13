@@ -58,20 +58,22 @@ export const PLAYLISTS: Playlist[] = [
   },
 ];
 
-export const MORE_PLAYLISTS = PLAYLISTS.map((item) => ({
+export const MIX_PLAYLISTS = PLAYLISTS.map((item) => ({
   ...item,
-  id: item.id + "_more",
+  id: "mix_" + item.id,
+  title: "Mix " + item.title
 }))
 
-export const SIDEBAR_PLAYLIST = PLAYLISTS.map((item) => ({
+export const THIS_IS_PLAYLIST = PLAYLISTS.map((item) => ({
   ...item,
-  id: item.id + "_side",
+  id: "this_is_" + item.id,
+  title: "This is " + item.title
 }))
 
 export const ALL_PLAYLIST = [
   ...PLAYLISTS,
-  ...MORE_PLAYLISTS,
-  ...SIDEBAR_PLAYLIST,
+  ...MIX_PLAYLISTS,
+  ...THIS_IS_PLAYLIST,
 ]
 
 export const SONGS: Song[] = [

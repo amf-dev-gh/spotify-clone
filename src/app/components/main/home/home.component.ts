@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PLAYLISTS, SIDEBAR_PLAYLIST } from '../../../consts/data';
+import { MIX_PLAYLISTS, THIS_IS_PLAYLIST } from '../../../consts/data';
 import { CommonModule } from '@angular/common';
 import { Playlist } from '../../../consts/interfaces';
 import { ColCardComponent } from "./col-card/col-card.component";
@@ -13,8 +13,8 @@ import { RowCardComponent } from "./row-card/row-card.component";
 })
 export class HomeComponent {
 
-  playLists:Playlist[] = PLAYLISTS;
+  mixPlayLists:Playlist[] = MIX_PLAYLISTS
 
-  sidebarPlayLists:Playlist[] = SIDEBAR_PLAYLIST;
+  thisIsPlayLists:Playlist[] = THIS_IS_PLAYLIST
 
 }

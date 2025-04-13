@@ -22,15 +22,15 @@
     <!-- row cards sidebar-->
     <div>
       <div class="grid w-full gap-2 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-6">
-        <app-row-card *ngFor="let playList of sidebarPlayLists" [playList]="playList"/>
+        <app-row-card *ngFor="let playList of thisIsPlayLists" [playList]="playList"/>
       </div>
     </div>
 
     <!-- col cards playlists -->
     <div>
-      <h1 class="text-2xl font-bold">Escuchado recientemente</h1>
+      <h1 class="text-2xl font-bold">Tus mixs personales</h1>
       <div class="flex">
-        <app-col-card *ngFor="let playList of playLists" [playList]="playList" />
+        <app-col-card *ngFor="let playList of mixPlayLists" [playList]="playList" />
       </div>
     </div>
 
