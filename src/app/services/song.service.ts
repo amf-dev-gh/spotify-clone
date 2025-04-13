@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { Song } from '../consts/interfaces';
+import { Playlist, Song } from '../consts/interfaces';
 import { SONGS } from '../consts/data';
 
 @Injectable({
@@ -9,6 +9,7 @@ export class SongService {
 
   private song: Song = SONGS[Math.floor(Math.random() * SONGS.length)];
   $currentSong = signal<Song>(this.song);
+  $playing = signal<boolean>(false);
 
   setSong(song: Song) {
     this.$currentSong.set(song);
@@ -33,9 +34,17 @@ export class SongService {
       if (prevSong) {
         this.setSong(prevSong);
       } else {
-        this.setSong(SONGS[SONGS.length-1]);
+        this.setSong(SONGS[SONGS.length - 1]);
       }
     }
+  }
+
+  playPause() {
+    this.$playing.set(!this.$playing());
+  }
+
+  setPlay() {
+    this.$playing.set(true);
   }
 
   private currentIndex(): number {
