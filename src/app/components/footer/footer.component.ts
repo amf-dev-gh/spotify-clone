@@ -1,9 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Song } from '../../consts/interfaces';
-import { SONGS } from '../../consts/data';
+import { SongService } from '../../services/song.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,14 +12,27 @@ import { SONGS } from '../../consts/data';
 })
 export class FooterComponent {
 
-  // hardcodeada la cancion aleatoria
-  song: Song = SONGS[Math.floor(Math.random() * 20) + 1];
+  private readonly songService = inject(SongService);
+  song = this.songService.$currentSong;
 
   @ViewChild('audioPlayer', { static: true }) audioPlayer?: ElementRef<HTMLAudioElement>;
   durationSongTime: number = 0;
   currentTime: number = 0;
   playing: boolean = false;
   volume: number = 100;
+
+  constructor() {
+    effect(() => {
+      const newSong = this.song();
+      if (newSong && this.audioPlayer?.nativeElement) {
+        const audioEl = this.audioPlayer.nativeElement;
+        audioEl.src = `/music/${newSong.albumId}/0${newSong.id}.mp3`;
+        audioEl.load();
+        audioEl.play(); // opcional: reproducir automáticamente
+        this.playing = true;
+      }
+    });
+  }
 
   playPause() {
     if (this.audioPlayer && this.audioPlayer.nativeElement) {
@@ -64,7 +76,6 @@ export class FooterComponent {
   }
 
   changeVolume() {
-    console.log(this.volume);
     if (this.audioPlayer && this.audioPlayer.nativeElement) {
       this.audioPlayer.nativeElement.volume = this.volume / 100;
       document.documentElement.style.setProperty('--volume', `${this.volume}%`);
@@ -75,7 +86,7 @@ export class FooterComponent {
     if (this.audioPlayer && this.audioPlayer.nativeElement) {
       if (this.volume > 0) {
         this.volume = 0;
-      }else{
+      } else {
         this.volume = 100;
       }
       this.changeVolume();
@@ -84,7 +95,6 @@ export class FooterComponent {
 
   toggleFullscreen() {
     const elem = document.documentElement;
-
     if (!document.fullscreenElement) {
       elem.requestFullscreen().catch(err => {
         console.error(`Error al intentar entrar en pantalla completa: ${err.message}`);
