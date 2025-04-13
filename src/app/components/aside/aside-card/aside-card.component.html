@@ -1,4 +1,4 @@
-<a href="#" class="relative flex gap-3 items-center p-2 h-17 rounded hover:bg-[var(--color-btn-gray)] group">
+<a routerLink="/list/{{ playList?.albumId }}" class="relative flex gap-3 items-center p-2 h-17 rounded hover:bg-[var(--color-btn-gray)] group">
   <img [src]="playList?.cover" alt="imagen album" class="aspect-[1/1] h-full w-auto object-cover rounded group-hover:opacity-50">
   <div class="flex flex-col justify-center">
     <p>{{playList?.title}}</p>

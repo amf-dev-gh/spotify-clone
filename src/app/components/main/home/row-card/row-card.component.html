@@ -1,4 +1,4 @@
-<a href="#"
+<a routerLink="/list/{{ playList?.albumId }}"
   class="relative bg-zinc-200/10 hover:bg-zinc-200/20 min-w-50 w-full h-12 rounded flex gap-3 items-center group">
   <img [src]="playList?.cover" alt="imagen album" class="aspect-[1/1] h-full w-auto object-cover rounded-l">
   <p class="text-sm font-bold">This is {{playList?.title}}</p>

@@ -4,16 +4,16 @@
   <div class="flex gap-4 items-center w-[350px]">
     <img [src]="song.image" alt="imagen disco" class="w-12 h-12 object-cover">
     <div class="flex flex-col justify-center">
-      <a href="#" class="text-sm hover:underline">{{song.title}}</a>
-      <a href="#"
-        class="text-[13px] text-[var(--color-text-gray)] hover:text-white hover:underline me-auto">{{song.album}}</a>
+      <p class="text-sm hover:underline hover:cursor-pointer">{{song.title}}</p>
+      <p
+        class="text-[13px] text-[var(--color-text-gray)] hover:text-white hover:underline me-auto hover:cursor-pointer">{{song.album}}</p>
     </div>
-    <a href="#" class="h-4.5 text-[var(--color-text-gray)] hover:text-white" title="Añadir a Canciones que te gustan">
+    <button href="#" class="h-4.5 text-[var(--color-text-gray)] hover:text-white  hover:cursor-pointer" title="Añadir a Canciones que te gustan">
       <icon-svg [name]="'plus-circle'" class="h-full w-auto" />
-    </a>
-    <a href="#" class="h-4.5 text-[var(--color-text-gray)] hover:text-white" title="Ocultar">
+    </button>
+    <button class="h-4.5 text-[var(--color-text-gray)] hover:text-white  hover:cursor-pointer" title="Ocultar">
       <icon-svg [name]="'dash-circle'" class="h-full w-auto" />
-    </a>
+    </button>
   </div>
 
   <!-- botones de reproducción -->
@@ -59,10 +59,10 @@
   <!-- botones volumen, letra, pantalla completa -->
   <div class="flex items-center gap-3">
 
-    <a class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
+    <button class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
       title="Conectar a un dispositivo">
       <icon-svg [name]="'headphones'" class="h-full w-auto" />
-    </a>
+  </button>
 
     <button class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Volumen" (click)="volumeMaxMin()">
       <icon-svg *ngIf="volume === 0" [name]="'volume-silenced'" class="h-full w-auto" />
@@ -74,10 +74,10 @@
     <!-- barra de volumen -->
     <input type="range" id="volumeRange" max="100" min="0" [(ngModel)]="volume" (input)="changeVolume()" />
 
-    <a class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" (click)="toggleFullscreen()"
+    <button class="h-5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" (click)="toggleFullscreen()"
       title="Ver en pantalla completa">
       <icon-svg [name]="'full-screen'" class="h-full w-auto" />
-    </a>
+  </button>
   </div>
 
 </footer>
