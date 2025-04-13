@@ -57,7 +57,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let song of playListSongs"
-          class="text-[var(--color-text-gray)] border-spacing-0 text-sm font-light hover:bg-white/10 overflow-hidden transition duration-300 group">
+          class="border-spacing-0 text-sm hover:bg-white/10 overflow-hidden transition duration-300 group"
+          [ngClass]="currentSong().title === song.title && currentSong().albumId === song.albumId ? 
+          'text-[var(--color-base-green)] font-bold':
+          'text-[var(--color-text-gray)] font-light'">
           <td class="relative px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
             <span class="opacity-100 group-hover:opacity-0">{{ song.id }}</span>
             <button

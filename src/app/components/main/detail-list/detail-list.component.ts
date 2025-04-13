@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Playlist, Song } from '../../../consts/interfaces';
 import { ALL_PLAYLIST, SONGS } from '../../../consts/data';
 import { IconComponent } from "../../icon/icon.component";
@@ -13,10 +13,13 @@ import { SongService } from '../../../services/song.service';
 })
 export class DetailListComponent implements OnInit {
 
+  private readonly songService = inject(SongService);
+  readonly currentSong = this.songService.$currentSong;
+
   playlist?: Playlist;
   playListSongs?: Song[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private songService:SongService) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
