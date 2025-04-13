@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, inject, ViewChild } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,11 +14,11 @@ export class FooterComponent {
 
   private readonly songService = inject(SongService);
   song = this.songService.$currentSong;
+  playing = this.songService.$playing;
 
   @ViewChild('audioPlayer', { static: true }) audioPlayer?: ElementRef<HTMLAudioElement>;
   durationSongTime: number = 0;
   currentTime: number = 0;
-  playing: boolean = false;
   volume: number = 100;
 
   constructor() {
@@ -29,19 +29,19 @@ export class FooterComponent {
         audioEl.src = `/music/${newSong.albumId}/0${newSong.id}.mp3`;
         audioEl.load();
         audioEl.play(); // opcional: reproducir automáticamente
-        this.playing = true;
+        this.songService.setPlay();
       }
     });
   }
 
   playPause() {
     if (this.audioPlayer && this.audioPlayer.nativeElement) {
-      if (this.playing) {
+      if (this.playing()) {
         this.audioPlayer.nativeElement.pause()
       } else {
         this.audioPlayer.nativeElement.play()
       }
-      this.playing = !this.playing;
+      this.songService.playPause();
     }
   }
 
@@ -104,11 +104,11 @@ export class FooterComponent {
     }
   }
 
-  playNext(){
+  playNext() {
     this.songService.nextSong();
   }
 
-  playPrev(){
+  playPrev() {
     this.songService.prevSong();
   }
 
