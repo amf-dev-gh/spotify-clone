@@ -23,25 +23,37 @@
 
   <!-- botonera de la lista -->
   <div class="flex gap-8 px-6 items-center w-full">
-    <button
+
+    <button (click)="pauseSong()" *ngIf="currentSong().albumId === playlist?.albumId && playing()"
+      class="h-15 text-[var(--color-base-green)] hover:text-green-400 hover:cursor-pointer hover:scale-105 transition-all"
+      title="Reproducir la lista">
+      <icon-svg [name]="'pause'" class="h-full w-auto" />
+    </button>
+
+    <button (click)="startPlayList()" *ngIf="currentSong().albumId !== playlist?.albumId || !playing()"
       class="h-15 text-[var(--color-base-green)] hover:text-green-400 hover:cursor-pointer hover:scale-105 transition-all"
       title="Reproducir la lista">
       <icon-svg [name]="'play-fill-black'" class="h-full w-auto" />
     </button>
+
     <button class="h-9 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
       title="Reproducción aleatoria">
       <icon-svg [name]="'shuffle'" class="h-full w-auto" />
     </button>
+
     <button class="h-8 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
       title="Agregar a mis listas">
       <icon-svg [name]="'plus-circle'" class="h-full w-auto" />
     </button>
+
     <button class="h-8 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Descargar lista">
       <icon-svg [name]="'arrow-down-circle'" class="h-full w-auto" />
     </button>
+
     <button class="h-8 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Más opciones">
       <icon-svg [name]="'three-dots'" class="h-full w-auto" />
     </button>
+
   </div>
 
   <!-- tabla canciones de la lista -->
@@ -57,14 +69,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let song of playListSongs"
-          class="border-spacing-0 text-sm hover:bg-white/10 overflow-hidden transition duration-300 group"
-          [ngClass]="currentSong().title === song.title && currentSong().albumId === song.albumId ? 
+          class="border-spacing-0 text-sm hover:bg-white/10 overflow-hidden transition duration-300 group" [ngClass]="currentSong().title === song.title && currentSong().albumId === song.albumId ? 
           'text-[var(--color-base-green)] font-bold':
           'text-[var(--color-text-gray)] font-light'">
           <td class="relative px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
             <span class="opacity-100 group-hover:opacity-0">{{ song.id }}</span>
-            <button
-              (click)="selectSong(song)"
+            <button (click)="selectSong(song)"
               class="absolute inset-0 top-3 left-3 opacity-0 group-hover:opacity-100 hover:text-white h-7 hover:cursor-pointer">
               <icon-svg name="play-fill" class="h-full w-auto" />
             </button>

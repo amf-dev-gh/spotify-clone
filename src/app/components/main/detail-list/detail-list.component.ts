@@ -15,9 +15,10 @@ export class DetailListComponent implements OnInit {
 
   private readonly songService = inject(SongService);
   readonly currentSong = this.songService.$currentSong;
+  readonly playing = this.songService.$playing;
 
   playlist?: Playlist;
-  playListSongs?: Song[];
+  playListSongs: Song[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -43,7 +44,18 @@ export class DetailListComponent implements OnInit {
     this.playListSongs = SONGS.filter(s => s.albumId === albumId);
   }
 
-  selectSong(song:Song){
+  selectSong(song: Song) {
     this.songService.setSong(song);
+  }
+
+  startPlayList() {
+    const song = this.playListSongs[0];
+    if (song) {
+      this.songService.setSong(song);
+    }
+  }
+
+  pauseSong() {
+    // TO Do...
   }
 }
