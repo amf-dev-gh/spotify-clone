@@ -1,0 +1,10 @@
+<a href="#"
+  class="relative flex flex-col gap-1 p-2 hover:bg-[var(--color-btn-gray)] rounded min-w-[160px] w-[160px] h-auto group hover:cursor-pointer  transition-all">
+  <img [src]="playList?.cover" alt="imagen album" class="w-full h-auto object-cover rounded">
+  <p class="hover:underline z-1 truncate">{{playList?.title}}</p>
+  <p class="text-sm text-[var(--color-text-gray)]">{{playList?.artists}}</p>
+  <icon-svg [name]="'play-fill-black'"
+    class="shadow-2xl text-[var(--color-base-green)] absolute inset-0 w-10 top-12 left-13 h-auto opacity-0 group-hover:opacity-100 transition-all hover:text-green-400 hover:scale-101" />
+  <span class="absolute inset-0 w-36 left-2 top-36 h-2 rounded-b"
+    [style]="'background-color: '+playList?.color?.dark+';'"></span>
+</a>
