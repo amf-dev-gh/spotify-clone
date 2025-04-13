@@ -1,0 +1,75 @@
+<section id="detailList" class="flex flex-col gap-2 h-full overflow-auto">
+
+  <!-- info de la lista -->
+  <div class="flex gap-5 p-6 w-full"
+    [style]="'background: linear-gradient('+playlist?.color?.dark+' 0%, transparent 100%);'">
+    <img [src]="playlist?.cover" alt="imagen del album"
+      class="aspect-[1/1] h-30 w-auto md:h-40 lg:h-50 xl:h-55 object-cover rounded-lg">
+    <div class="flex flex-col justify-end gap-3">
+      <p class="font-light">Lista pública</p>
+      <h1 class="sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">{{playlist?.title}}</h1>
+      <h2 class="text-sm text-[var(--color-text-gray)]">{{playlist?.title}}. Los temas esenciales en usa sola lista</h2>
+      <div class="flex items-center gap-2">
+        <img src="/images/logo-spotify.webp" alt="logo spotify" class="aspect-[1/1] w-6 h-auto">
+        <a href="https://open.spotify.com/intl-es" target="_blank" class="hover:underline font-bold">Spotify</a>
+        <p class="text-sm text-[var(--color-text-gray)]">
+          <span>Guardada 49.999 veces ·</span>
+          <span> 10 canciones, </span>
+          <span>50 minutos</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- botonera de la lista -->
+  <div class="flex gap-8 px-6 items-center w-full">
+    <button
+      class="h-15 text-[var(--color-base-green)] hover:text-green-400 hover:cursor-pointer hover:scale-105 transition-all"
+      title="Reproducir la lista">
+      <icon-svg [name]="'play-fill-black'" class="h-full w-auto" />
+    </button>
+    <button class="h-9 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
+      title="Reproducción aleatoria">
+      <icon-svg [name]="'shuffle'" class="h-full w-auto" />
+    </button>
+    <button class="h-8 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
+      title="Agregar a mis listas">
+      <icon-svg [name]="'plus-circle'" class="h-full w-auto" />
+    </button>
+    <button class="h-8 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Descargar lista">
+      <icon-svg [name]="'arrow-down-circle'" class="h-full w-auto" />
+    </button>
+    <button class="h-8 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer" title="Más opciones">
+      <icon-svg [name]="'three-dots'" class="h-full w-auto" />
+    </button>
+  </div>
+
+  <!-- tabla canciones de la lista -->
+  <div class="p-6 w-full">
+    <table class="table-auto text-left min-w-full divide-y divide-gray-500/20">
+      <thead>
+        <tr class="text-[var(--color-text-gray)] text-sm">
+          <th class="px-4 py-2 font-light">#</th>
+          <th class="px-4 py-2 font-light">Título</th>
+          <th class="px-4 py-2 font-light">Álbum</th>
+          <th class="px-4 py-2 font-light"><icon-svg name="time" class="h-4 w-auto" /></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-[var(--color-text-gray)] border-spacing-0 text-sm font-light hover:bg-white/10 overflow-hidden transition duration-300 group">
+          <td class="relative px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
+            <span class="opacity-100 group-hover:opacity-0">10</span>
+            <button class="absolute inset-0 top-3 left-3 opacity-0 group-hover:opacity-100 hover:text-white h-7 hover:cursor-pointer" ><icon-svg name="play-fill" class="h-full w-auto"/></button>
+          </td>
+          <td class="px-4 py-2 flex gap-3 items-center">
+            <img [src]="playlist?.cover" alt="imagen cancion" class="aspect-[1/1] object-cover h-9 w-auto">
+            <p>Quiero que me llames</p>
+          </td>
+          <td class="px-4 py-2">Conociendo a rusia</td>
+          <td class="px-4 py-2">2:55</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
