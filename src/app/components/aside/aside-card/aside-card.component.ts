@@ -3,13 +3,12 @@ import { IconComponent } from "../../icon/icon.component";
 import { Playlist } from '../../../consts/interfaces';
 
 @Component({
-  selector: 'app-playlist-card',
+  selector: 'app-aside-card',
   imports: [IconComponent],
-  templateUrl: './playlist-card.component.html',
-  styleUrl: './playlist-card.component.css'
+  templateUrl: './aside-card.component.html'
 })
-export class PlaylistCardComponent {
+export class AsideCardComponent {
 
-  @Input() playList?:Playlist;
+  @Input() playList?: Playlist;
 
 }
