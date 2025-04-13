@@ -18,6 +18,14 @@ html {
   color: white;
 }
 
+@layer base {
+  * {
+    scrollbar-color: var(--color-text-gray) var(--color-bg-gray);
+    scrollbar-width: thin;
+    border-radius: 3px;
+  }
+}
+
 @font-face {
   font-family: "CircularStd";
   src: url("/fonts/CircularStd-Medium.woff2") format("woff2");
