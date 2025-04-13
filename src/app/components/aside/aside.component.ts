@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { PlaylistCardComponent } from "./playlist-card/playlist-card.component";
-import { Playlist, PLAYLISTS } from '../../consts/data';
+import { PLAYLISTS } from '../../consts/data';
 import { CommonModule } from '@angular/common';
+import { Playlist } from '../../consts/interfaces';
 
 @Component({
   selector: 'app-aside',

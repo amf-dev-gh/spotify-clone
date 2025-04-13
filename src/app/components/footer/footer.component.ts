@@ -2,7 +2,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Song, SONGS } from '../../consts/data';
+import { Song } from '../../consts/interfaces';
+import { SONGS } from '../../consts/data';
 
 @Component({
   selector: 'app-footer',

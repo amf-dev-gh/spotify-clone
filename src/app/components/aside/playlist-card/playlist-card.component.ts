@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Playlist } from '../../../consts/data';
 import { IconComponent } from "../../icon/icon.component";
+import { Playlist } from '../../../consts/interfaces';
 
 @Component({
   selector: 'app-playlist-card',
