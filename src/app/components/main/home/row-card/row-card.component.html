@@ -1,7 +1,7 @@
 <a routerLink="/list/{{ playList?.id }}"
-  class="relative bg-zinc-200/10 hover:bg-zinc-200/20 min-w-50 w-full h-12 rounded flex gap-3 items-center group">
+  class="relative bg-zinc-200/10 hover:bg-zinc-200/20 w-full h-12 rounded flex gap-3 items-center group">
   <img [src]="playList?.cover" alt="imagen album" class="aspect-[1/1] h-full w-auto object-cover rounded-l">
   <p class="text-sm font-bold">{{playList?.title}}</p>
   <icon-svg [name]="'play-fill-black'"
-    class="absolute shadow-2xl text-[var(--color-base-green)] inset-0 w-8 h-auto top-1 left-29.5 opacity-0 group-hover:opacity-100 transition-all hover:text-green-400 hover:scale-101" />
+    class="absolute text-[var(--color-base-green)] w-8 h-auto top-1 right-1 opacity-0 group-hover:opacity-100 transition-all hover:text-green-400 hover:scale-101" />
 </a>
