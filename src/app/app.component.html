@@ -1,4 +1,5 @@
-<div id="app" class="relative h-screen p-2 gap-2">
+<!-- diseño web -->
+<div id="app" class="relative h-screen p-2 gap-2" *ngIf="!isMobile">
 
   <app-nav class="[grid-area:nav]" />
 
@@ -6,10 +7,17 @@
 
   <main class="[grid-area:main] bg-[var(--color-bg-gray)] rounded-md overflow-y-auto">
 
-    <router-outlet/>
+    <router-outlet />
 
   </main>
 
   <app-footer class="[grid-area:player]" />
+
+</div>
+
+<!-- diseño movile -->
+<div id="appMovile" class="flex flex-col w-screen h-screen" *ngIf="isMobile">
+
+  <app-movile-home />
 
 </div>
