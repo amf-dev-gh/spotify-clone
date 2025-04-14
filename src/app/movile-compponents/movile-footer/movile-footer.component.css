@@ -1,15 +1,11 @@
 #timeRange {
   -webkit-appearance: none;
   appearance: none;
-  background: linear-gradient(to right, white 0%, white var(--progress, 0%), var(--color-btn-gray) var(--progress, 0%), var(--color-btn-gray) 100%);
+  background: linear-gradient(to right, var(--color-base-green) 0%, var(--color-base-green) var(--progress, 0%), var(--color-btn-gray) var(--progress, 0%), var(--color-btn-gray) 100%);
   cursor: pointer;
   width: 70vw;
   height: 4.5px;
   border-radius: 5px;
-}
-
-#timeRange:hover {
-  background: linear-gradient(to right, var(--color-base-green) 0%,  var(--color-base-green) var(--progress, 0%), var(--color-btn-gray) var(--progress, 0%), var(--color-btn-gray) 100%);
 }
 
 #timeRange:hover::-webkit-slider-thumb {
