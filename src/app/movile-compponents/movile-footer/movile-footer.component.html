@@ -1,0 +1,50 @@
+<footer class="h-full p-2 flex items-center">
+
+  <!-- botones de reproducción -->
+  <div class="flex flex-col items-center gap-2 w-full">
+
+    <!-- botones play, pause, next, prev -->
+    <div class="flex gap-5 items-center">
+
+      <button (click)="playPrevSong()" class="h-4.5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
+        title="Anterior">
+        <icon-svg [name]="'prev'" class="h-full w-auto" />
+      </button>
+
+      <button *ngIf="!playing()" (click)="playSong()" class="h-8 text-white hover:cursor-pointer" title="Reproducir">
+        <icon-svg [name]="'play'" class="h-full w-auto" />
+      </button>
+
+      <button *ngIf="playing()" (click)="pauseSong()" class="h-8 text-white hover:cursor-pointer" title="Pausar">
+        <icon-svg [name]="'pause'" class="h-full w-auto" />
+      </button>
+
+      <button (click)="playNextSong()" class="h-4.5 text-[var(--color-text-gray)] hover:text-white hover:cursor-pointer"
+        title="Siguiente">
+        <icon-svg [name]="'next'" class="h-full w-auto" />
+      </button>
+
+    </div>
+
+    <!-- tiempo -->
+    <div class="flex gap-2 items-center">
+
+      <!-- tiempo transcurrido -->
+      <p class="font-light text-[10px]">{{formatTime(currentTime)}}</p>
+
+      <!-- barra de tiempo -->
+      <input type="range" id="timeRange" min="0" [max]="durationSongTime" [value]="durationSongTime"
+        [(ngModel)]="currentTime" (input)="changeCurrentTime()" />
+
+      <audio #audioPlayer (loadedmetadata)="updateDurationSong()" (timeupdate)="onTimeUpdate()" (ended)="playNextSong()">
+        <source [src]="'/music/'+song().albumId+'/0'+song().id+'.mp3'" type="audio/mpeg">
+      </audio>
+
+      <!-- tiempo restante -->
+      <p class="font-light text-[10px]">{{formatTime(durationSongTime-currentTime)}}</p>
+
+    </div>
+
+  </div>
+
+</footer>

@@ -1,0 +1,41 @@
+<!-- navegador fijo -->
+<header class="w-full bg-[var(--color-bg-gray)] h-[10vh] sticky top-0">
+  <nav class="flex justify-between items-center p-3 h-full">
+    <a href="https://open.spotify.com/intl-es" target="_blank"
+      class="flex gap-2 items-center h-full p-1 text-2xl font-bold">
+      <img src="/images/logo-spotify.webp" alt="logo spotify" class="aspect-[1/1] h-full w-auto rounded-[50%]">
+      Spotify | Clone
+    </a>
+    <a href="https://amf-dev.site" target="_blank" class="h-full p-2 bg-[var(--color-btn-gray)] rounded-[50%]">
+      <img src="/images/account-img.webp" alt="imagen cuenta" class="aspect-[1/1] h-full w-auto rounded-[50%]">
+    </a>
+  </nav>
+</header>
+
+<!-- lista canciones movile -->
+<main class="flex h-[80vh] flex-col overflow-auto gap-2 py-2 px-4">
+
+  <h1 class="text-2xl font-bold my-2">Todas tus canciones disponibles</h1>
+
+  <!-- card row-song -->
+  <div 
+  *ngFor="let song of allSongs"
+  class="flex justify-between gap-4 h-15 w-full bg-[var(--color-bg-gray)] rounded-lg">
+    <img [src]="song.image" alt="imgagen album" class="aspect-[1/1] h-full w-auto object-cover">
+    <div class="flex flex-1 justify-between">
+      <div class="flex flex-col justify-center">
+        <h3 class="font-bold truncate">{{song.title}}</h3>
+        <h3 class="text-sm text-[var(--color-text-gray)]">{{song.artists}}</h3>
+      </div>
+      <button class="h-full p-4" (click)="playSong(song)">
+        <icon-svg name="play" class="h-full w-auto" />
+      </button>
+    </div>
+  </div>
+
+</main>
+
+<!-- reproductor en la base fijo -->
+<footer class="w-full bg-[var(--color-bg-gray)] h-[10vh] sticky bottom-0">
+  <app-movile-footer />
+</footer>
