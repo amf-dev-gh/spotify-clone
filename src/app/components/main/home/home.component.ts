@@ -8,13 +8,19 @@ import { RowCardComponent } from "./row-card/row-card.component";
 @Component({
   selector: 'app-home',
   imports: [CommonModule, ColCardComponent, RowCardComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
 
-  mixPlayLists:Playlist[] = MIX_PLAYLISTS
+  mixPlayLists:Playlist[] = MIX_PLAYLISTS;
 
-  thisIsPlayLists:Playlist[] = THIS_IS_PLAYLIST
+  thisIsPlayLists:Playlist[] = THIS_IS_PLAYLIST;
+
+  backgroundColor:string = '';
+
+  changeBackground(color:string){
+    this.backgroundColor = color;
+    console.log("Cambiar bg a: ", color)
+  }
 
 }
