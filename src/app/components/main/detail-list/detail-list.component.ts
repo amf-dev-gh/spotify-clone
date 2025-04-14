@@ -19,6 +19,7 @@ export class DetailListComponent implements OnInit {
 
   playlist?: Playlist;
   playListSongs: Song[] = [];
+  totalListTime: number = 0;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -34,6 +35,7 @@ export class DetailListComponent implements OnInit {
     if (playlist) {
       this.playlist = playlist;
       this.getSongs(playlist.albumId);
+      this.getTotalListTime();
     } else {
       console.error("Playlist not found")
       this.router.navigate(['/home']);
@@ -45,17 +47,34 @@ export class DetailListComponent implements OnInit {
   }
 
   selectSong(song: Song) {
+    if (song === this.currentSong()) {
+      this.songService.setPlay()
+      return;
+    }
     this.songService.setSong(song);
   }
 
   startPlayList() {
     const song = this.playListSongs[0];
     if (song) {
+      if (song === this.currentSong()) {
+        this.songService.setPlay()
+        return;
+      }
       this.songService.setSong(song);
     }
   }
 
   pauseSong() {
     this.songService.setPause();
+  }
+
+  getTotalListTime() {
+    let totalSeconds = 0;
+    this.playListSongs.forEach(song => {
+      const [min, seg] = song.duration.split(":").map(Number);
+      totalSeconds += min * 60 + seg;
+    });
+    this.totalListTime = Math.floor(totalSeconds / 60);
   }
 }
