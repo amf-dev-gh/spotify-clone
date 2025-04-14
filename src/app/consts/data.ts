@@ -128,7 +128,7 @@ export const SONGS: Song[] = [
     "title": "Silent Rain",
     "image": "/images/list_02_img.webp",
     "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
+    "album": "Lo-Fi Chill Session",
     "duration": "2:38"
   },
   {
@@ -137,7 +137,7 @@ export const SONGS: Song[] = [
     "title": "Lost Pages",
     "image": "/images/list_02_img.webp",
     "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
+    "album": "Lo-Fi Chill Session",
     "duration": "2:40"
   },
   {
@@ -146,7 +146,7 @@ export const SONGS: Song[] = [
     "title": "Midnight Tales",
     "image": "/images/list_02_img.webp",
     "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
+    "album": "Lo-Fi Chill Session",
     "duration": "2:53"
   },
   {
@@ -155,7 +155,7 @@ export const SONGS: Song[] = [
     "title": "City Lights",
     "image": "/images/list_02_img.webp",
     "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
+    "album": "Lo-Fi Chill Session",
     "duration": "3:11"
   },
   {
@@ -164,7 +164,7 @@ export const SONGS: Song[] = [
     "title": "Night Drive",
     "image": "/images/list_02_img.webp",
     "artists": ["Urban Nocturne"],
-    "album": "Midnight Tales",
+    "album": "Lo-Fi Chill Session",
     "duration": "2:58"
   },
   {
@@ -218,7 +218,7 @@ export const SONGS: Song[] = [
     "title": "Lunar",
     "image": "/images/list_04_img.webp",
     "artists": ["Tenno"],
-    "album": "Study Session",
+    "album": "Blue Note Study Time",
     "duration": "2:59"
   },
   {
@@ -227,7 +227,7 @@ export const SONGS: Song[] = [
     "title": "Go go go!",
     "image": "/images/list_04_img.webp",
     "artists": ["Tenno"],
-    "album": "Study Session",
+    "album": "Blue Note Study Time",
     "duration": "2:12"
   },
   {
@@ -236,7 +236,7 @@ export const SONGS: Song[] = [
     "title": "Keep focus!",
     "image": "/images/list_04_img.webp",
     "artists": ["Tenno"],
-    "album": "Study Session",
+    "album": "Blue Note Study Time",
     "duration": "3:02"
   },
   {
@@ -245,7 +245,7 @@ export const SONGS: Song[] = [
     "title": "JavaScript is the way",
     "image": "/images/list_04_img.webp",
     "artists": ["Tenno"],
-    "album": "Study Session",
+    "album": "Blue Note Study Time",
     "duration": "2:29"
   },
   {
@@ -254,7 +254,7 @@ export const SONGS: Song[] = [
     "title": "No more TypeScript for me",
     "image": "/images/list_04_img.webp",
     "artists": ["Tenno"],
-    "album": "Study Session",
+    "album": "Blue Note Study Time",
     "duration": "2:29"
   },
   {
@@ -263,7 +263,7 @@ export const SONGS: Song[] = [
     "title": "Moonlit Walk",
     "image": "/images/list_05_img.webp",
     "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
+    "album": "Chau Saura Session",
     "duration": "3:49"
   },
   {
@@ -272,7 +272,7 @@ export const SONGS: Song[] = [
     "title": "Coffee Daze",
     "image": "/images/list_05_img.webp",
     "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
+    "album": "Chau Saura Session",
     "duration": "1:52"
   },
   {
@@ -281,7 +281,7 @@ export const SONGS: Song[] = [
     "title": "Skyline Serenade",
     "image": "/images/list_05_img.webp",
     "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
+    "album": "Chau Saura Session",
     "duration": "2:15"
   },
   {
@@ -290,7 +290,7 @@ export const SONGS: Song[] = [
     "title": "Urban Echoes",
     "image": "/images/list_05_img.webp",
     "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
+    "album": "Chau Saura Session",
     "duration": "4:06"
   },
   {
@@ -299,7 +299,52 @@ export const SONGS: Song[] = [
     "title": "Night's End",
     "image": "/images/list_05_img.webp",
     "artists": ["LoFi Dreamer"],
-    "album": "Chill Lo-Fi Music",
+    "album": "Chau Saura Session",
     "duration": "2:54"
   },
+  {
+    "id": 1,
+    "albumId": 6,
+    "title": "Exhale",
+    "image": "/images/list_06_img.webp",
+    "artists": ["Meditania"],
+    "album": "Like a Necessity",
+    "duration": "1:57"
+  },
+  {
+    "id": 2,
+    "albumId": 6,
+    "title": "Preparation",
+    "image": "/images/list_06_img.webp",
+    "artists": ["Doctor Oscillator"],
+    "album": "Like a Necessity",
+    "duration": "1:49"
+  },
+  {
+    "id": 3,
+    "albumId": 6,
+    "title": "Lights",
+    "image": "/images/list_06_img.webp",
+    "artists": ["Catalynx"],
+    "album": "Like a Necessity",
+    "duration": "2:36"
+  },
+  {
+    "id":4,
+    "albumId": 6,
+    "title": "Vision",
+    "image": "/images/list_06_img.webp",
+    "artists": ["Haytorius"],
+    "album": "Like a Necessity",
+    "duration": "2:49"
+  },
+  {
+    "id": 5,
+    "albumId": 6,
+    "title": "Space gravity",
+    "image": "/images/list_06_img.webp",
+    "artists": ["Astro Box"],
+    "album": "Like a Necessity",
+    "duration": "2:29"
+  }
 ]
