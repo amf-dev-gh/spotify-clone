@@ -51,7 +51,7 @@ export class DetailListComponent implements OnInit {
       this.songService.setPlay()
       return;
     }
-    this.songService.setSong(song);
+    this.songService.setSong(song, this.playlist?.title);
   }
 
   startPlayList() {
@@ -61,7 +61,7 @@ export class DetailListComponent implements OnInit {
         this.songService.setPlay()
         return;
       }
-      this.songService.setSong(song);
+      this.songService.setSong(song, this.playlist?.title);
     }
   }
 
