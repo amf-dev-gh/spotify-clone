@@ -1,8 +1,21 @@
-<a routerLink="/list/{{ playList?.id }}" class="relative flex gap-3 items-center p-2 h-17 rounded hover:bg-[var(--color-btn-gray)] group">
-  <img [src]="playList?.cover" alt="imagen album" class="aspect-[1/1] h-full w-auto object-cover rounded group-hover:opacity-50">
+<div class="relative flex gap-3 items-center p-2 h-17 rounded hover:bg-[var(--color-btn-gray)] group">
+  <img [src]="playList?.cover" alt="imagen album" class="aspect-[1/1] h-full w-auto object-cover rounded group-hover:opacity-80">
   <div class="flex flex-col justify-center">
-    <p>{{playList?.title}}</p>
+    <a 
+      routerLink="/list/{{ playList?.id }}" 
+      class="hover:underline" 
+      [ngClass]="currentPlaylistName() === playList?.title ? 'text-[var(--color-base-green)]':''">
+      {{playList?.title}}
+    </a>
     <p class="text-sm text-[var(--color-text-gray)]">Artistas · {{playList?.artists}}</p>
   </div>
-  <icon-svg [name]="'play-fill'" class="h-9 w-auto absolute inset-0 top-2 left-1.5 opacity-0 group-hover:opacity-100" />
-</a>
+
+  <button *ngIf="currentPlaylistName() !== playList?.title" class="w-9 h-9 absolute inset-0 top-4 left-3 opacity-0 group-hover:opacity-90 hover:opacity-100 hover:cursor-pointer hover:text-white">
+    <icon-svg (click)="startPlayList()" [name]="'play-fill'" class="h-full w-auto"/>
+  </button>
+
+  <button *ngIf="currentPlaylistName() === playList?.title" class="w-9 h-9 absolute inset-0 top-4 left-3 text-[var(--color-base-green)]">
+    <icon-svg [name]="'volume-full'" class="h-full w-auto"/>
+  </button>
+
+</div>
