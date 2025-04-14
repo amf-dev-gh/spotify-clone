@@ -2,14 +2,15 @@
 
 <h3><em>Creado en Angular y estilizado con Tailwind</em></h3>
 
-<h3>Aplicación que simula la versión de escritorio de Windows de Spotify desarrollado en Angular y estilado con tailwind</h3>
+<h3>Aplicación que simula la versión de escritorio de Windows de Spotify desarrollado en Angular y estilado con Tailwind</h3>
 
 <h3>Funciones a implementar</h3>
 <ul>
-<li>[-] Vista de pantalla de inicio con listas y camciones</li>
-<li>[-] Navegador superior</li>
-<li>[-] Navegador inferior para reproducción</li>
-<li>[-] Navegador lateral listas personalizadas</li>
+<li>[x] Vista de pantalla de inicio con listas y camciones</li>
+<li>[x] Navegador superior</li>
+<li>[x] Navegador inferior para reproducción</li>
+<li>[x] Navegador lateral listas personalizadas</li>
+<li>[ ] Busqueda y filtrado de canciones</li>
 </ul>
 
 --
