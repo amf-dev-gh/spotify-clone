@@ -10,9 +10,13 @@ export class SongService {
   private song: Song = SONGS[Math.floor(Math.random() * SONGS.length)];
   $currentSong = signal<Song>(this.song);
   $playing = signal<boolean>(false);
+  $currentPlayListName = signal<string>(this.song.album);
 
-  setSong(song: Song) {
+  setSong(song: Song, playListName?:string) {
     this.$currentSong.set(song);
+    if(playListName){
+      this.$currentPlayListName.set(playListName);
+    }
   }
 
   nextSong() {
