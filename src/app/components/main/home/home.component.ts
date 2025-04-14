@@ -20,7 +20,6 @@ export class HomeComponent {
 
   changeBackground(color:string){
     this.backgroundColor = color;
-    console.log("Cambiar bg a: ", color)
   }
 
 }
