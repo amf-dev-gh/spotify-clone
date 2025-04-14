@@ -39,8 +39,8 @@ export class SongService {
     }
   }
 
-  playPause() {
-    this.$playing.set(!this.$playing());
+  setPause() {
+    this.$playing.set(false);
   }
 
   setPlay() {

@@ -56,6 +56,6 @@ export class DetailListComponent implements OnInit {
   }
 
   pauseSong() {
-    // TO Do...
+    this.songService.setPause();
   }
 }

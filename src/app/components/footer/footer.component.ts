@@ -13,8 +13,8 @@ import { SongService } from '../../services/song.service';
 export class FooterComponent {
 
   private readonly songService = inject(SongService);
-  song = this.songService.$currentSong;
-  playing = this.songService.$playing;
+  readonly song = this.songService.$currentSong;
+  readonly playing = this.songService.$playing;
 
   @ViewChild('audioPlayer', { static: true }) audioPlayer?: ElementRef<HTMLAudioElement>;
   durationSongTime: number = 0;
@@ -22,27 +22,51 @@ export class FooterComponent {
   volume: number = 100;
 
   constructor() {
+    // evento que escucha cambios de cancion
     effect(() => {
       const newSong = this.song();
       if (newSong && this.audioPlayer?.nativeElement) {
         const audioEl = this.audioPlayer.nativeElement;
+        // Cada cancion deberia tener un id diferente y acceder por el id
+        // pero por ahora dejo esto que sirve para el caso
+        // '/music/1/01.mp3'
         audioEl.src = `/music/${newSong.albumId}/0${newSong.id}.mp3`;
         audioEl.load();
-        audioEl.play(); // opcional: reproducir automáticamente
-        this.songService.setPlay();
+        this.playSong();
+      }
+    });
+
+    // evento que escucha cambios en la reproduccion actual
+    effect(() => {
+      const playing = this.playing();
+      if (playing) {
+        this.playSong()
+      } else {
+        this.pauseSong();
       }
     });
   }
 
-  playPause() {
+  playSong() {
     if (this.audioPlayer && this.audioPlayer.nativeElement) {
-      if (this.playing()) {
-        this.audioPlayer.nativeElement.pause()
-      } else {
-        this.audioPlayer.nativeElement.play()
-      }
-      this.songService.playPause();
+      this.audioPlayer.nativeElement.play()
+      this.songService.setPlay();
     }
+  }
+
+  pauseSong() {
+    if (this.audioPlayer && this.audioPlayer.nativeElement) {
+      this.audioPlayer.nativeElement.pause()
+      this.songService.setPause();
+    }
+  }
+
+  playNextSong() {
+    this.songService.nextSong();
+  }
+
+  playPrevSong() {
+    this.songService.prevSong();
   }
 
   onTimeUpdate() {
@@ -103,13 +127,4 @@ export class FooterComponent {
       document.exitFullscreen();
     }
   }
-
-  playNext() {
-    this.songService.nextSong();
-  }
-
-  playPrev() {
-    this.songService.prevSong();
-  }
-
 }
