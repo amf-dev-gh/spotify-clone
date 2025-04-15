@@ -22,6 +22,7 @@ export class FooterComponent {
   volume: number = 100;
 
   constructor() {
+    let isFirstSongLoad = true;
     // evento que escucha cambios de cancion
     effect(() => {
       const newSong = this.song();
@@ -32,7 +33,12 @@ export class FooterComponent {
         // '/music/1/01.mp3'
         audioEl.src = `/music/${newSong.albumId}/0${newSong.id}.mp3`;
         audioEl.load();
-        this.playSong();
+        // En la primer carga del componente no reproduce automaticamente para no dar problemas en los navegadores.
+        if(!isFirstSongLoad){
+          this.playSong();
+        }else{
+          isFirstSongLoad = false;
+        }
       }
     });
 
